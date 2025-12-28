@@ -13,6 +13,7 @@ import { errorAlert, handleApiError } from "../utils/alert";
 import NotFound from "./NotFound";
 import EmptyState from "../components/emptyState";
 import CloseIcon from '@mui/icons-material/Close';
+import Loading from "../components/Loading";
 
 const TicketDetailsDialog = () => {
     const [ticket, setTicket] = useState<Ticket | null>(null);
@@ -109,7 +110,8 @@ const TicketDetailsDialog = () => {
             setActionLoading(false);
         }
     };
-
+if(loading)
+    return<Loading/>
     return (
         <Dialog open={effectiveOpen} onClose={handleClose} fullWidth maxWidth="md">
             <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
